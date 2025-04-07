@@ -16,7 +16,7 @@ export default function TransferForm({
     const amount = amountRef.current.value.trim().toString();
 
     // Validate Ethereum address
-    if (!Web3.utils.isAddress(receiver)) {
+    if (!ethers.utils.isAddress(receiver)) {
       alert("Invalid Ethereum address. Please enter a valid address.");
       return;
     }
@@ -43,7 +43,7 @@ export default function TransferForm({
             Account: {account}
           </span> */}
           <span style={{ color: "#fdf2d0", fontWeight: "bold" }}>
-            Balance: {window.web3.utils.fromWei(daiTokenBalance, "Ether")} DAI
+            Balance: {ethers.formatEther(daiTokenBalance)} DAI
             <br />
             Account: {account}
           </span>
